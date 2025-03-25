@@ -22,7 +22,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, Sliders, MapPin } from "lucide-react";
+import { Search, Sliders, MapPin, X } from "lucide-react";
 import { sampleEvents, categories } from "@/lib/mockData";
 import { cn } from "@/lib/utils";
 
@@ -133,9 +133,9 @@ export default function MapView() {
                   <SelectValue placeholder="Category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="">All Categories</SelectItem>
+                  <SelectItem value="all">All Categories</SelectItem>
                   {categories.map((category) => (
-                    <SelectItem key={category.id} value={category.name}>
+                    <SelectItem key={category.id} value={category.name.toLowerCase()}>
                       {category.name}
                     </SelectItem>
                   ))}
@@ -293,6 +293,3 @@ export default function MapView() {
     </Layout>
   );
 }
-
-// Add missing X icon import
-import { X } from "lucide-react";
